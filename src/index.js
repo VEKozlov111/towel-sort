@@ -2,16 +2,23 @@
 // You should implement your task here.
 
 module.exports = function towelSort(matrix) {
+  if (matrix == undefined || matrix.length === 0) { return [] }
+  else {
+    let a = matrix.map(function (item, index, array) {
 
-  let a = matrix.map(function (item, index, array) {
-    item.join();
-    return array.join(',')
-  });
-  return a[0].split(',').map(function (item) { return Number(item) })
+      if (index % 2 != 0) {
+        item.reverse()
+      }
+      return item.join();
+
+    });
+    let v = a.join(',');
+    return v.split(',').map(function (item) { return Number(item) })
+  }
+  //return a[0].split(',').map(function (item) { return Number(item) })
 
 };
 /*console.log(towelSort([
-  [1, 2, 3, 4],
-  [5, 6, 7, 8],
-  [9, 10, 11, 12],
+  [1, 2],
+  [3, 4],
 ]));*/
